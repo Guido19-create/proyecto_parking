@@ -29,6 +29,11 @@ export const Documentos = sequelize.define('Documentos', {
       }
     }
   },
+  fotoDelDocumento: {
+     type: DataTypes.STRING,
+     allowNull:true,
+     comment: 'Foto del documento si la tiene'
+  },
   nombreDocumento: {
     type: DataTypes.STRING(255),
     allowNull: false,
@@ -39,12 +44,6 @@ export const Documentos = sequelize.define('Documentos', {
         msg: 'El nombre debe tener entre 3 y 255 caracteres'
       }
     }
-  },
-  isbn: {
-    type: DataTypes.STRING(20),
-    allowNull: true,
-    unique: true,
-    comment: 'ISBN o identificador único para libros'
   },
   cantidadDisponible: {
     type: DataTypes.INTEGER,
@@ -58,12 +57,6 @@ export const Documentos = sequelize.define('Documentos', {
     },
     comment: 'Cantidad de copias disponibles'
   },
-  cantidadTotal: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    defaultValue: 1,
-    comment: 'Cantidad total de copias existentes'
-  },
   estadoDelDocumento: {
     type: DataTypes.ENUM('perfecto', 'dañado', 'en reparación', 'perdido'),
     allowNull: false,
@@ -74,12 +67,6 @@ export const Documentos = sequelize.define('Documentos', {
     type: DataTypes.STRING(100),
     allowNull: false,
     comment: 'Ubicación física en la biblioteca'
-  },
-  fechaAdquisicion: {
-    type: DataTypes.DATEONLY,
-    allowNull: false,
-    defaultValue: DataTypes.NOW,
-    comment: 'Fecha cuando se adquirió el documento'
   }
 }, {
   tableName: 'documentos',

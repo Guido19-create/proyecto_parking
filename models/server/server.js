@@ -1,7 +1,7 @@
 import express from "express";
-import { sequelize } from "../../config/databaseConection.js"; // Asegúrate de que el archivo exista
 import { createRoutes } from "../../routes/index.js";
 import { inicializarModelos } from "../Entity/index.js";
+import fileUpload from "express-fileupload";
 
 export class ServerClass {
   constructor() {
@@ -14,10 +14,17 @@ export class ServerClass {
 
   ConfigureMiddleware() {
     this.app.use(express.json()); // Para parsear JSON en las requests
+    this.app.use(
+      fileUpload({
+        createParentPath: true,
+        useTempFiles: true,
+        tempFileDir: "/temp/",
+      })
+    );
   }
 
   ConfigureRoutes() {
-    this.app.use('/api', createRoutes()); // Monta las rutas bajo /api
+    this.app.use("/api", createRoutes()); // Monta las rutas bajo /api
   }
 
   initDB() {

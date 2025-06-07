@@ -15,5 +15,8 @@ export const globalEnv = {
   DB_USER: process.env.DB_USER,
   DB_PASSWORD: process.env.DB_PASSWORD,
   DB_NAME: process.env.DB_NAME,
-  KEY_JWT:process.env.KEY_JWT
+  KEY_JWT:process.env.KEY_JWT,
+  CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME,
+  API_KEY: process.env.CLOUDINARY_API_KEY,
+  API_SECRET: process.env.CLOUDINARY_API_SECRET,
 };
