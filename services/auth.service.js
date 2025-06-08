@@ -24,6 +24,7 @@ export class AuthService {
         nombre,
         esBibliotecario,
         success: true,
+        result: user,
         message: "Usuario regristrado exitosamente",
       };
     } catch (error) {
@@ -52,6 +53,7 @@ export class AuthService {
         ? {
             message: "Usuario logeado",
             success: true,
+            result: user,
             token: createToken(user.solapin),
           }
         : {

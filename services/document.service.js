@@ -117,7 +117,7 @@ export class DocumentService {
       }
 
       // 2. Eliminar el documento (físicamente)
-      const result = await document.destroy({ force: true });
+      await document.destroy({ force: true });
 
       // 3. Verificación adicional (opcional pero recomendada)
       const documentoEliminado = await Documentos.findOne({
@@ -131,6 +131,7 @@ export class DocumentService {
         );
         return {
           success: false,
+          token: createToken(data.solapin),
           status: 500,
           message: `Error interno: No se pudo eliminar "${nameDocument}" completamente`,
         };
@@ -185,6 +186,7 @@ export class DocumentService {
       return {
         success: true,
         status: 200,
+        token: createToken(data.solapin),
         message: `Resultados obtenidos de "${nameDocument}"`,
         results: rows,
         totalPages: Math.ceil(count / parsedLimit),
@@ -272,6 +274,7 @@ export class DocumentService {
       return {
         success: true,
         status: 200,
+        token: createToken(data.solapin),
         message: "Documento actualizado correctamente",
         document: updatedDocument,
       };
@@ -302,6 +305,7 @@ export class DocumentService {
       return {
         success: true,
         status: 200,
+        token: createToken(data.solapin),
         message: `Tipos de documnetos obtenidos`,
         results: documents,
       };

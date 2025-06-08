@@ -33,11 +33,6 @@ export const QuejasSugerencias = sequelize.define('QuejasSugerencias', {
     defaultValue: 'pendiente',
     allowNull: false,
     comment: 'Estado de gestión de la queja/sugerencia'
-  },
-  fecha_creacion: {
-    type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW,
-    comment: 'Fecha de creación del registro'
   }
 }, {
   tableName: 'quejassugerencias',
