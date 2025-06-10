@@ -19,6 +19,12 @@ export const Documentos = sequelize.define('Documentos', {
     allowNull: false,
     comment: 'Género o categoría principal'
   },
+  Disponibilidad: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+    comment: 'Este campo indica si el documento esta reservado o no',
+    defaultValue: true
+  },
   autor: {
     type: DataTypes.STRING(255),
     allowNull: false,

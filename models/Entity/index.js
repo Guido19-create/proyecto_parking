@@ -37,7 +37,7 @@ export async function inicializarModelos() {
     
      // 3. Sincronizar modelos con la base de datos (solo en desarrollo)
     /*if (process.env.NODE_ENV !== 'production') {
-      await sequelize.sync({ force: true });
+      await sequelize.sync({ alter: true });
       console.log('✅ Modelos sincronizados (alter)');
     }*/
 

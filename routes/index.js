@@ -3,6 +3,7 @@ import { createAuthRoutes } from "./auth.routes.js";
 import { createDocumentRoutes } from "./document.routes.js";
 import { verifyToken } from "../middlewares/authMiddlewares.js";
 import { createQuejasSugerenciasRoutes } from "./quejasSugerencias.routes.js";
+import { createSolicitudRoutes } from "./solicitud.routes.js";
 
 export const createRoutes = () => {
     const router = Router();
@@ -16,6 +17,10 @@ export const createRoutes = () => {
     //Crud de Quejas y sugerencias
     router.use('/quejassugerencias',verifyToken)
     router.use('/quejassugerencias',createQuejasSugerenciasRoutes());
+    
+    //Crud de solicitudes
+    router.use('/solicitar',verifyToken)
+    router.use('/solicitar',createSolicitudRoutes());
 
     return router;
 }

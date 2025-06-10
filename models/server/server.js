@@ -2,6 +2,7 @@ import express from "express";
 import { createRoutes } from "../../routes/index.js";
 import { inicializarModelos } from "../Entity/index.js";
 import fileUpload from "express-fileupload";
+import { deleteSolicitudesExpiradas } from "../../utils/deleteSolicitudesExpiradas.js";
 
 export class ServerClass {
   constructor() {
@@ -10,6 +11,7 @@ export class ServerClass {
     this.ConfigureMiddleware();
     this.ConfigureRoutes();
     this.initDB();
+    deleteSolicitudesExpiradas(); 
   }
 
   ConfigureMiddleware() {

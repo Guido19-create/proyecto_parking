@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { DocumentController } from "../controllers/document.controllers.js";
+import { DocumentController } from "../controllers/document.controller.js";
 import { DocumentService } from "../services/document.service.js";
 import { documentVerify, updateValidations } from "../middlewares/documentMiddlewares.js";
 import { verifyIsBibliotecary } from "../middlewares/userMiddlewares.js";

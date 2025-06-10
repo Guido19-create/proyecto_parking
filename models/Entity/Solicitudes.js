@@ -16,12 +16,12 @@ export const Solicitudes = sequelize.define('Solicitudes', {
     comment: 'Código único de referencia de la solicitud'
   },
   estadoSolicitud: {
-    type: DataTypes.ENUM('perfecto', 'dañado', 'perdido'),
-    allowNull: false,
-    defaultValue: 'perfecto',
-    comment: 'Estado físico del material solicitado'
-  },
-  fechaSolicitud: {
+  type: DataTypes.ENUM('pendiente', 'aprobada', 'rechazada', 'completada'), // Asegúrate que incluya 'pendiente'
+  allowNull: false,
+  defaultValue: 'pendiente', // Valor por defecto
+  comment: 'Estado actual de la solicitud'
+},
+  fechaDeExpiracion: {
     type: DataTypes.DATE,
     defaultValue: DataTypes.NOW,
     comment: 'Fecha en que se realizó la solicitud'

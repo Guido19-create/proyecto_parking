@@ -12,7 +12,6 @@ export class DocumentService {
         category,
         author,
         nameDocument,
-        quantity,
         stateDocument,
         location,
       } = data.body;
@@ -35,7 +34,6 @@ export class DocumentService {
         autor: author,
         fotoDelDocumento: photoURL, // Usará la URL o la url por defecto
         nombreDocumento: nameDocument,
-        cantidadDisponible: quantity,
         estadoDelDocumento: stateDocument,
         ubicacion: location,
       });
@@ -71,6 +69,7 @@ export class DocumentService {
       const offset = (page - 1) * limit;
 
       const { count, rows } = await Documentos.findAndCountAll({
+        where : {Disponibilidad : true },
         limit: limit,
         offset: offset,
       });
@@ -171,6 +170,7 @@ export class DocumentService {
           nombreDocumento: {
             [Op.regexp]: nameDocument,
           },
+          Disponibilidad:true
         },
         limit: parsedLimit,
         offset: offset,
@@ -293,7 +293,8 @@ export class DocumentService {
   async getTypeDocumentService() {
     try {
       const documents = await Documentos.findAll({
-        attributes: ["tipoDeDocumento"],
+        where:{Disponibilidad:true},
+        attributes: ["tipoDeDocumento"]
       });
 
       if (documents.length === 0) return {
