@@ -34,6 +34,7 @@ export const verifyToken = ( req, res, next ) => {
         req.solapin = payload.solapin;
         return next()
     } catch (error) {
+        console.log('Hay un error')
         return res.status(403).json({
             success:false,
             message: 'No hay token en la peticion'

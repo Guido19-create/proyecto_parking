@@ -91,7 +91,7 @@ export async function configurarRelacionesPrestamos() {
   });
 
   // Relación con Solicitud (origen del préstamo)
-  Prestamos.hasOne(Solicitudes, {
+ /* Prestamos.hasOne(Solicitudes, {
     foreignKey: {
       name: 'prestamoId',
       allowNull: true
@@ -100,7 +100,7 @@ export async function configurarRelacionesPrestamos() {
     as: 'solicitud',
     onDelete: 'SET NULL',
     onUpdate: 'CASCADE'
-  });
+  });*/
 
   // Relación con Devolución (cierre del préstamo)
   Prestamos.hasOne(Devoluciones, {

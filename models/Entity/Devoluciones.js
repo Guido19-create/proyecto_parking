@@ -31,7 +31,7 @@ export const Devoluciones = sequelize.define('Devoluciones', {
     comment: 'Detalles sobre el estado o incidencias'
   },
   diasRetraso: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.STRING,
     allowNull: false,
     defaultValue: 0,
     comment: 'Días de retraso en la devolución'

@@ -89,6 +89,7 @@ export class DocumentService {
         message: "Resultados Obtenidos ...",
         totalPages,
         results: rows,
+        totalDocuments:count
       };
     } catch (error) {
       console.log(error.message);

@@ -3,7 +3,7 @@ import { createRoutes } from "../../routes/index.js";
 import { inicializarModelos } from "../Entity/index.js";
 import fileUpload from "express-fileupload";
 import { deleteSolicitudesExpiradas } from "../../utils/deleteSolicitudesExpiradas.js";
-
+import cors from 'cors';
 export class ServerClass {
   constructor() {
     this.app = express();
@@ -23,6 +23,11 @@ export class ServerClass {
         tempFileDir: "/temp/",
       })
     );
+    this.app.use(cors({
+      origin:'http://127.0.0.1:5500',
+      methods:['GET','POST','PUT','DELETE'],
+      allowedHeaders:['Content-Type','Authorization','token']
+    }));
   }
 
   ConfigureRoutes() {

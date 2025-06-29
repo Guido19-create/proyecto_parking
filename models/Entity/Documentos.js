@@ -63,12 +63,6 @@ export const Documentos = sequelize.define('Documentos', {
     },
     comment: 'Cantidad de copias disponibles'
   },
-  estadoDelDocumento: {
-    type: DataTypes.ENUM('perfecto', 'dañado', 'en reparación', 'perdido'),
-    allowNull: false,
-    defaultValue: 'perfecto',
-    comment: 'Estado físico del documento'
-  },
   ubicacion: {
     type: DataTypes.STRING(100),
     allowNull: false,

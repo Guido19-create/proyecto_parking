@@ -1,4 +1,3 @@
-import bcryptjs from "bcryptjs";
 import { Usuarios } from "../models/Entity/Usuario.js";
 import { createToken } from "../utils/generateJWT.js";
 import { hashPassword, verifyPassword } from "../utils/hashearPassword.js";
@@ -6,7 +5,7 @@ import { hashPassword, verifyPassword } from "../utils/hashearPassword.js";
 export class AuthService {
   async registerService(data) {
     try {
-      const { solapin, nombre, password, esBibliotecario } = data;
+      const { solapin, nombre, password} = data;
 
       const hashPass =  hashPassword(password);
       
@@ -14,10 +13,12 @@ export class AuthService {
         solapin,
         nombre,
         password: hashPass,
-        esBibliotecario,
+        esBibliotecario:false,
       });
 
       await user.save();
+
+      const esBibliotecario = user.esBibliotecario;
 
       return {
         solapin,
